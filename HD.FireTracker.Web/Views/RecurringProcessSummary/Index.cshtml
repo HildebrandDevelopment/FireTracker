@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HD.FireTracker.Common.DTO.DomainObjects.RecurringProcessSummaryDTO>
+
+@functions {
+    public string getStr(string id, string displayIfNull)
+    {
+        return HD.FireTracker.Common.Helpers.ParamCheck.ParamCheckString(id, displayIfNull);
+    }
+
+}
+@{
+    ViewBag.Title = "Recurring Process Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Recurring Process Summary</h2>
+<p>
+    &nbsp;
+</p>
+<table class="table">
+    <tr>
+        <td>
+            LastId
+        </td>
+        <td>
+            RecurringJobName
+        </td>
+        <td>
+            LastRunTime
+        </td>
+        <td>
+            TaskManagerProcessId
+        </td>
+        <td>
+            Exception
+        </td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastId)
+            </td>
+            <td>
+                @Html.ActionLink(getStr(item.RecurringJobName, "None"), "Index", "RecurringProcess", new { id = item.RecurringJobName }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastRunTime)
+            </td>
+            <td>
+                @Html.ActionLink(getStr(item.TaskManagerProcessId, "-1"), "Index", "RecurringProcessDetail", new { id = item.TaskManagerProcessId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exception)
+            </td>
+        </tr>
+    }
+
+</table>

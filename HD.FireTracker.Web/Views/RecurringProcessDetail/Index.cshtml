@@ -1,0 +1,100 @@
+﻿@model IEnumerable<HD.FireTracker.Common.DTO.DomainObjects.RecurringProcessDetailProjectionDTO>
+
+@functions {
+    public string getStr(string id, string displayIfNull)
+    {
+        return HD.FireTracker.Common.Helpers.ParamCheck.ParamCheckString(id, displayIfNull);
+    }
+
+    public string getRunningTime(IEnumerable<HD.FireTracker.Common.DTO.DomainObjects.RecurringProcessDetailProjectionDTO> details)
+    {
+        string retVal = "";
+
+
+        if (details != null)
+        {
+            if (details.Count() > 1)
+            {
+                var first = details.First();
+                var last = details.Last();
+
+                var dateDiff = (last.TimeStamp.GetValueOrDefault(DateTime.Now) - first.TimeStamp.GetValueOrDefault(DateTime.Now));
+
+                if (dateDiff.Hours < 25)
+                {
+                    retVal = ("Running Time:  " + dateDiff.Hours.ToString() + " Hours, " + dateDiff.Minutes.ToString() + " Minutes, " + dateDiff.Seconds.ToString() + " Seconds, " + dateDiff.Milliseconds.ToString() + " Milliseconds");
+                }
+                else
+                {
+                    retVal = ("Running Time:  " + dateDiff.Days.ToString() + " Days, " + dateDiff.Hours.ToString() + " Hours, " + dateDiff.Minutes.ToString() + " Minutes, " + dateDiff.Seconds.ToString() + " Seconds, " + dateDiff.Milliseconds.ToString() + " Milliseconds");
+
+                }
+            }
+        }
+
+        return retVal;
+    }
+}
+@{
+    ViewBag.Title = "Recurring Process Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Recurring Process Detail</h2>
+<p>
+    <b><i> @getRunningTime(Model) &nbsp;</i></b> &nbsp;
+</p>
+<table class="table">
+    <tr>
+        <th>
+            TaskManagerProcessId
+        </th>
+        <th>
+            Recurring Process
+        </th>
+        <th>
+            Level
+        </th>
+        <th>
+            TimeStamp
+        </th>
+        <th>
+            Message Type
+        </th>
+        <th>
+            Message
+        </th>
+        <th>
+            Exception
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskManagerProcessId)
+            </td>
+            <td>
+                @Html.ActionLink(getStr(item.RecurringJobName, "None"), "Index", "RecurringProcess", new { id = item.RecurringJobName }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FireTrackerMsg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exception)
+            </td>
+        </tr>
+    }
+
+</table>

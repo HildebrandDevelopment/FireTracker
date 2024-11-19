@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HD.FireTracker.Common.DTO.DomainObjects.RecurringProcessDTO>
+
+@functions{
+    public string getStr(string id, string displayIfNull)
+    {
+        return HD.FireTracker.Common.Helpers.ParamCheck.ParamCheckString(id, displayIfNull);
+    }
+}
+@{
+    ViewBag.Title = "RecurringProcesses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Recurring Processes</h2>
+<p>
+    &nbsp;
+</p>
+<table class="table">
+
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            RecurringJobName
+        </th>
+        <th>
+            TimeStamp
+        </th>
+        <th>
+            TaskManagerProcessId
+        </th>
+        <th>
+            LogCleanupDate
+        </th>
+        <th>
+            Exception
+        </th>
+        <th>
+            Level
+        </th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.ActionLink(getStr(item.RecurringJobName, "None"), "Index", "RecurringProcess", new { id = item.RecurringJobName }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+            </td>
+            <td>
+                @Html.ActionLink(getStr(item.TaskManagerProcessId,"None"), "Index", "RecurringProcessDetail", new {id = item.TaskManagerProcessId}, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogCleanupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exception)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+        </tr>
+    }
+</table>

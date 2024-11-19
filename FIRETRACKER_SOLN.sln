@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HD.FireTracker.Web", "HD.FireTracker.Web\HD.FireTracker.Web.csproj", "{18D94340-34EC-4B95-BC40-E461F3764123}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HD.FireTracker.Common", "HD.FireTracker.Common\HD.FireTracker.Common.csproj", "{D56F2231-E22D-4CBF-A1D1-DF098B554D67}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HD.FireTracker.Projects.Tests", "HD.FireTracker.Projects.Tests\HD.FireTracker.Projects.Tests.csproj", "{7C686718-BC7A-4A5C-AAD4-1931E6045D0D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HD.FireTracker.Common.DTO", "HD.FireTracker.Common.DTO\HD.FireTracker.Common.DTO.csproj", "{A3209105-9326-4796-A6E1-049D408F3BB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HD.FireTracker.DB.FireTrackerDB", "HD.FireTracker.DB.FireTrackerDB\HD.FireTracker.DB.FireTrackerDB.csproj", "{39686D4E-3D4B-477F-AB3D-D0F65FC58355}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HD.FireTracker.Data.Service", "HD.FireTracker.Data.Service\HD.FireTracker.Data.Service.csproj", "{7DA5B184-6CAD-4C04-A7D4-CB7DB64F7FD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HD.FireTracker.Data.Common", "HD.FireTracker.Data.Common\HD.FireTracker.Data.Common.csproj", "{879AEC93-D1AB-4755-8B7A-69EEF32969B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18D94340-34EC-4B95-BC40-E461F3764123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D94340-34EC-4B95-BC40-E461F3764123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D94340-34EC-4B95-BC40-E461F3764123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D94340-34EC-4B95-BC40-E461F3764123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56F2231-E22D-4CBF-A1D1-DF098B554D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56F2231-E22D-4CBF-A1D1-DF098B554D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56F2231-E22D-4CBF-A1D1-DF098B554D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56F2231-E22D-4CBF-A1D1-DF098B554D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C686718-BC7A-4A5C-AAD4-1931E6045D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C686718-BC7A-4A5C-AAD4-1931E6045D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C686718-BC7A-4A5C-AAD4-1931E6045D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C686718-BC7A-4A5C-AAD4-1931E6045D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3209105-9326-4796-A6E1-049D408F3BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3209105-9326-4796-A6E1-049D408F3BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3209105-9326-4796-A6E1-049D408F3BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3209105-9326-4796-A6E1-049D408F3BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39686D4E-3D4B-477F-AB3D-D0F65FC58355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39686D4E-3D4B-477F-AB3D-D0F65FC58355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39686D4E-3D4B-477F-AB3D-D0F65FC58355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39686D4E-3D4B-477F-AB3D-D0F65FC58355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA5B184-6CAD-4C04-A7D4-CB7DB64F7FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA5B184-6CAD-4C04-A7D4-CB7DB64F7FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA5B184-6CAD-4C04-A7D4-CB7DB64F7FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA5B184-6CAD-4C04-A7D4-CB7DB64F7FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{879AEC93-D1AB-4755-8B7A-69EEF32969B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{879AEC93-D1AB-4755-8B7A-69EEF32969B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{879AEC93-D1AB-4755-8B7A-69EEF32969B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{879AEC93-D1AB-4755-8B7A-69EEF32969B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18F4915E-7CD9-41E2-8785-5CA75F840400}
+	EndGlobalSection
+EndGlobal
