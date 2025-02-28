@@ -22,6 +22,7 @@ using HD.FireTracker.Data.Common.Specifications.Base;
 using HD.FireTracker.Common.Extensions;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using HD.FireTracker.Web.AuthorizationFilters;
 
 namespace HD.FireTracker.Web
 {
@@ -32,6 +33,10 @@ namespace HD.FireTracker.Web
             var builder = WebApplication.CreateBuilder(args);
 
             var connString = builder.Configuration.GetConnectionString(HD.FireTracker.Common.Consts.ConstNames.HangfireConnection);
+           
+
+            var envHangfireDashboardVisibility = Common.Helpers.ParamCheck.ParamCheckString(builder.Configuration.GetValue<string>(Common.Consts.ConstNames.HANGFIRE_DASHBOARD_VISIBILITY), "");
+            
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -171,7 +176,23 @@ namespace HD.FireTracker.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseHangfireDashboard();
+
+            switch (envHangfireDashboardVisibility)
+            {
+                case "CONTAINER_DEVELOPMENT_NO_AUTH":
+                    app.UseHangfireDashboard("/hangfire", new DashboardOptions
+                    {
+                        Authorization = new[] { new FullAccessNoAuthRequired() }
+                    });
+
+                    break;
+
+                default:
+                    app.UseHangfireDashboard();
+
+                    break;
+            }
+            
 
             app.UseRouting();
 

@@ -13,6 +13,22 @@ namespace HD.FireTracker.Common.Helpers
     /// </summary>
     public static class ParamCheck
     {
+        public static string ParamCheckString(string? value, string defaultIfNull)
+        {
+            if (value != null)
+            {                
+                return Convert.ToString(value);
+            }
+            else
+            {
+                return defaultIfNull;
+            }
+        }
+        public static string ParamCheckString(string? value)
+        {
+            return ParamCheckString(value, string.Empty);
+        }
+
         public static string ParamCheckString(object value, string defaultIfNull)
         {
             if(value != null)
