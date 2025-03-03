@@ -2,6 +2,24 @@
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+
+# ADDITIONAL TOOLS FOR DEBUGGING
+ENV BUILDX_BUILDER=desktop-linux
+ENV ACCEPT_EULA=Y
+
+USER root
+RUN apt-get -y update
+RUN apt-get -y install curl
+
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | tee /etc/apt/trusted.gpg.d/microsoft.asc
+
+RUN curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | tee /etc/apt/sources.list.d/mssql-release.list
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends mssql-tools18 unixodbc-dev
+
+# END ADDITIONAL TOOLS FOR DEBUGGING
+
 USER app
 WORKDIR /app
 EXPOSE 8080
